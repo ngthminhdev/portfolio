@@ -1,8 +1,226 @@
-.header {
-    color: red
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-    background-color: blue;
-    height: 100px;
+main {
+  background-color: $background-color;
+  font-family: "Montserrat";
+  width: 100vw;
+  height: 100vh;
+  padding: 30px 50px;
+}
+
+#nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  width: 100vw;
+
+  #title-0 {
+    // display: inline-block;
+    text-decoration: none;
+    letter-spacing: -0.1em;
+
+    span {
+      float: left;
+      color: $title-color;
+      font-weight: 600;
+      font-size: 37px;
+    }
+  }
+
+  #typing-text {
+    margin-right: 116px;
+    border: solid 1px $border-color;
+    padding: 0.5em;
+    font-weight: 400;
+    font-family: "Montserrat";
+    .text {
+      color: $text-color;
+    }
+    .hi {
+      color: $title-color;
+    }
+  }
+}
+
+.main-section {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+
+  .left {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    height: 80vh;
+    border: 1px solid $border-color;
+    user-select: none;
+    transform-origin: center;
+
+    .avatar-section {
+      position: relative;
+
+      .avatar {
+        position: relative;
+        width: 200px;
+        border-radius: 50%;
+        margin: 30px auto;
+        object-fit: cover;
+      }
+
+      .circle-1 {
+        position: absolute;
+        box-sizing: border-box;
+        width: 210px;
+        height: 210px;
+        top: 25px; /* position the top  edge of the element at the middle of the parent */
+        left: -5px; /* position the left edge of the element at the middle of the parent */
+        border-width: 2px;
+        border-style: solid;
+        border-color: $border-color $border-color $border-color transparent;
+        border-radius: 50%;
+        transition: all 1.5s ease-in-out;
+      }
+
+      .circle-2 {
+        @extend .circle-1;
+        width: 220px;
+        height: 220px;
+        top: 20px; /* position the top  edge of the element at the middle of the parent */
+        left: -10px; /* position the left edge of the element at the middle of the parent */
+        border-color: $border-color transparent $border-color $border-color;
+      }
+
+      &:hover {
+        cursor: pointer;
+        .circle-1 {
+          transform: rotate(360deg);
+        }
+        .circle-2 {
+          transform: rotate(-360deg);
+        }
+      }
+    }
+
+    .name {
+      font-weight: 600;
+      font-size: 22px;
+      margin: 0 auto 15px auto;
+    }
+
+    .description {
+      font-size: 13px;
+      text-transform: uppercase;
+      margin: 0 auto 30px auto;
+    }
+
+    .menu-section {
+      text-align: center;
+
+      .section {
+        position: relative;
+        padding: 10px;
+        cursor: pointer;
+
+        &:after {
+          position: absolute;
+          content: "";
+          bottom: 5px;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background-color: $title-color;
+          transition: width 0.5s;
+        }
+
+        &.active {
+          color: $title-color;
+          font-weight: 600;
+
+          &.section:after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .right {
+    user-select: none;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 30px;
+    margin-left: 25%;
+    width: calc(75% - 100px);
+    height: 80vh;
+    border-top: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+
+    .pane {
+      display: none;
+
+      .title {
+        font-weight: 400;
+        font-family: "Reem Kufi Ink";
+        font-size: 26px;
+      }
+
+      .sub-title {
+        font-weight: 600;
+        font-size: 32px;
+        margin-top: 50px;
+        text-transform: uppercase;
+      }
+
+      .content {
+        margin-top: 50px;
+        text-align: justify;
+
+        > span {
+          color: $title-color;
+          font-weight: 600;
+        }
+      }
+
+      &.active {
+        display: block;
+      }
+
+      .showcase {
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .skill-item {
+          margin: 10px 15px;
+          display: flex;
+          align-items: center;
+          border: 1px solid $border-color;
+          padding: 5px 10px;
+
+          .skill-icon {
+            width: 40px;
+            margin-right: 10px;
+          }
+        }
+
+        .react {
+        }
+      }
+    }
+  }
 }

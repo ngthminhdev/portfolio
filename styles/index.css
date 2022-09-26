@@ -1,8 +1,202 @@
-.header {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-header {
-  background-color: blue;
-  height: 100px;
+main {
+  background-color: #fff;
+  font-family: "Montserrat";
+  width: 100vw;
+  height: 100vh;
+  padding: 30px 50px;
+}
+
+#nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+  width: 100vw;
+}
+#nav #title-0 {
+  text-decoration: none;
+  letter-spacing: -0.1em;
+}
+#nav #title-0 span {
+  float: left;
+  color: #DA0037;
+  font-weight: 600;
+  font-size: 37px;
+}
+#nav #typing-text {
+  margin-right: 116px;
+  border: solid 1px #DA0037;
+  padding: 0.5em;
+  font-weight: 400;
+  font-family: "Montserrat";
+}
+#nav #typing-text .text {
+  color: #000;
+}
+#nav #typing-text .hi {
+  color: #DA0037;
+}
+
+.main-section {
+  display: flex;
+  margin-top: 70px;
+  width: 100%;
+  height: 100%;
+}
+.main-section .left {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 25%;
+  height: 80vh;
+  border: 1px solid #DA0037;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transform-origin: center;
+}
+.main-section .left .avatar-section {
+  position: relative;
+}
+.main-section .left .avatar-section .avatar {
+  position: relative;
+  width: 200px;
+  border-radius: 50%;
+  margin: 30px auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.main-section .left .avatar-section .circle-1, .main-section .left .avatar-section .circle-2 {
+  position: absolute;
+  box-sizing: border-box;
+  width: 210px;
+  height: 210px;
+  top: 25px; /* position the top  edge of the element at the middle of the parent */
+  left: -5px; /* position the left edge of the element at the middle of the parent */
+  border-width: 2px;
+  border-style: solid;
+  border-color: #DA0037 #DA0037 #DA0037 transparent;
+  border-radius: 50%;
+  transition: all 1.5s ease-in-out;
+}
+.main-section .left .avatar-section .circle-2 {
+  width: 220px;
+  height: 220px;
+  top: 20px; /* position the top  edge of the element at the middle of the parent */
+  left: -10px; /* position the left edge of the element at the middle of the parent */
+  border-color: #DA0037 transparent #DA0037 #DA0037;
+}
+.main-section .left .avatar-section:hover {
+  cursor: pointer;
+}
+.main-section .left .avatar-section:hover .circle-1, .main-section .left .avatar-section:hover .circle-2 {
+  transform: rotate(360deg);
+}
+.main-section .left .avatar-section:hover .circle-2 {
+  transform: rotate(-360deg);
+}
+.main-section .left .name {
+  font-weight: 600;
+  font-size: 22px;
+  margin: 0 auto 15px auto;
+}
+.main-section .left .description {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin: 0 auto 30px auto;
+}
+.main-section .left .menu-section {
+  text-align: center;
+}
+.main-section .left .menu-section .section {
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+}
+.main-section .left .menu-section .section:after {
+  position: absolute;
+  content: "";
+  bottom: 5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #DA0037;
+  transition: width 0.5s;
+}
+.main-section .left .menu-section .section.active {
+  color: #DA0037;
+  font-weight: 600;
+}
+.main-section .left .menu-section .section.active.section:after {
+  width: 100%;
+}
+.main-section .right {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  padding: 30px;
+  margin-left: 25%;
+  width: calc(75% - 100px);
+  height: 80vh;
+  border-top: 1px solid #DA0037;
+  border-right: 1px solid #DA0037;
+  border-bottom: 1px solid #DA0037;
+}
+.main-section .right .pane {
+  display: none;
+}
+.main-section .right .pane .title {
+  font-weight: 400;
+  font-family: "Reem Kufi Ink";
+  font-size: 26px;
+}
+.main-section .right .pane .sub-title {
+  font-weight: 600;
+  font-size: 32px;
+  margin-top: 50px;
+  text-transform: uppercase;
+}
+.main-section .right .pane .content {
+  margin-top: 50px;
+  text-align: justify;
+}
+.main-section .right .pane .content > span {
+  color: #DA0037;
+  font-weight: 600;
+}
+.main-section .right .pane.active {
+  display: block;
+}
+.main-section .right .pane .showcase {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.main-section .right .pane .showcase .skill-item {
+  margin: 10px 15px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #DA0037;
+  padding: 5px 10px;
+}
+.main-section .right .pane .showcase .skill-item .skill-icon {
+  width: 40px;
+  margin-right: 10px;
 }/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,31 @@
+@mixin zoom($move) {
+  $animation-name: unique-id() !global;
+
+  @keyframes #{$animation-name} {
+    from {
+      font-size: 20px;
+    }
+    to {
+      font-size: 50px;
+      font-weight: 600;
+    }
+  }
+
+  animation: $animation-name .5s forwards ease-in-out;
+}
+
+@mixin zoom-rev($move) {
+  $animation-name: unique-id() !global;
+
+  @keyframes #{$animation-name} {
+    from {
+      font-size: 50px;
+      font-weight: 600;
+    }
+    to {
+      font-size: 20px;
+    }
+  }
+
+  animation: $animation-name .5s forwards ease-in-out;
+}
