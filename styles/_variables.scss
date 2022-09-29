@@ -1,8 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Condensed:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap');
-$title-color: #DA0037;
-$text-color: #000;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Condensed:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,800;1,400;1,600;1,700&display=swap");
 
-$border-color: #DA0037;
+@font-face {
+  font-family: "American-Captain";
+  src: url("../assets/fonts/American Captain.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "Moonhouse";
+  src: url("../assets/fonts/Moonhouse-yE5M.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "VarinonormalRegular";
+  src: url("../assets/fonts/VarinonormalRegular-1GXaM.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "Moiser";
+  src: url("../assets/fonts/Moiser-mnOV.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "Autobusbold";
+  src: url("../assets/fonts/Autobusbold-1ynL.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "Networld";
+  src: url("../assets/fonts/Networld-3zRwp.ttf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "BraveEightyoneRegular";
+  src: url("../assets/fonts/BraveEightyoneRegular-ZVGvm.ttf"); /*URL to font*/
+}
+
+@font-face {
+    font-family: "RegaveDemibold";
+    src: url("../assets/fonts/RegaveDemibold-nRZrJ.ttf"); /*URL to font*/
+  }
+
+$title-color: rgb(218, 0, 55);
+$text-color: #fff;
+
+$border-color: #da0037;
+$outlight-color: rgba(218, 0, 55, 0.545);
 
 $background-color: #fff;

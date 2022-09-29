@@ -1,202 +1,227 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto+Condensed:wght@300;400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,800;1,400;1,600;1,700&display=swap");
+@font-face {
+  font-family: "American-Captain";
+  src: url("../assets/fonts/American Captain.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "Moonhouse";
+  src: url("../assets/fonts/Moonhouse-yE5M.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "VarinonormalRegular";
+  src: url("../assets/fonts/VarinonormalRegular-1GXaM.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "Moiser";
+  src: url("../assets/fonts/Moiser-mnOV.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "Autobusbold";
+  src: url("../assets/fonts/Autobusbold-1ynL.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "Networld";
+  src: url("../assets/fonts/Networld-3zRwp.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "BraveEightyoneRegular";
+  src: url("../assets/fonts/BraveEightyoneRegular-ZVGvm.ttf"); /*URL to font*/
+}
+@font-face {
+  font-family: "RegaveDemibold";
+  src: url("../assets/fonts/RegaveDemibold-nRZrJ.ttf"); /*URL to font*/
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 main {
   background-color: #fff;
-  font-family: "Montserrat";
   width: 100vw;
-  height: 100vh;
-  padding: 30px 50px;
+  height: 200vh;
 }
 
 #nav {
-  position: fixed;
+  position: absolute;
+  top: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
   align-items: center;
-  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+   -ms-user-select: none;
+       user-select: none;
   width: 100vw;
+  height: 10vh;
 }
-#nav #title-0 {
-  text-decoration: none;
-  letter-spacing: -0.1em;
+#nav ul {
+  width: 100%;
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
-#nav #title-0 span {
-  float: left;
-  color: #DA0037;
-  font-weight: 600;
-  font-size: 37px;
+#nav ul li {
+  font-family: "Autobusbold";
+  font-size: 24px;
+  color: #fff;
+  transition: all 0.5s ease;
 }
-#nav #typing-text {
-  margin-right: 116px;
-  border: solid 1px #DA0037;
-  padding: 0.5em;
-  font-weight: 400;
-  font-family: "Montserrat";
-}
-#nav #typing-text .text {
-  color: #000;
-}
-#nav #typing-text .hi {
-  color: #DA0037;
+#nav ul li:hover {
+  cursor: pointer;
+  color: rgb(218, 0, 55);
 }
 
 .main-section {
-  display: flex;
-  margin-top: 70px;
-  width: 100%;
-  height: 100%;
-}
-.main-section .left {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 25%;
-  height: 80vh;
-  border: 1px solid #DA0037;
   -webkit-user-select: none;
   -moz-user-select: none;
    -ms-user-select: none;
        user-select: none;
-  transform-origin: center;
 }
-.main-section .left .avatar-section {
-  position: relative;
-}
-.main-section .left .avatar-section .avatar {
-  position: relative;
-  width: 200px;
-  border-radius: 50%;
-  margin: 30px auto;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.main-section .left .avatar-section .circle-1, .main-section .left .avatar-section .circle-2 {
-  position: absolute;
-  box-sizing: border-box;
-  width: 210px;
-  height: 210px;
-  top: 25px; /* position the top  edge of the element at the middle of the parent */
-  left: -5px; /* position the left edge of the element at the middle of the parent */
-  border-width: 2px;
-  border-style: solid;
-  border-color: #DA0037 #DA0037 #DA0037 transparent;
-  border-radius: 50%;
-  transition: all 1.5s ease-in-out;
-}
-.main-section .left .avatar-section .circle-2 {
-  width: 220px;
-  height: 220px;
-  top: 20px; /* position the top  edge of the element at the middle of the parent */
-  left: -10px; /* position the left edge of the element at the middle of the parent */
-  border-color: #DA0037 transparent #DA0037 #DA0037;
-}
-.main-section .left .avatar-section:hover {
-  cursor: pointer;
-}
-.main-section .left .avatar-section:hover .circle-1, .main-section .left .avatar-section:hover .circle-2 {
-  transform: rotate(360deg);
-}
-.main-section .left .avatar-section:hover .circle-2 {
-  transform: rotate(-360deg);
-}
-.main-section .left .name {
-  font-weight: 600;
-  font-size: 22px;
-  margin: 0 auto 15px auto;
-}
-.main-section .left .description {
-  font-size: 13px;
-  text-transform: uppercase;
-  margin: 0 auto 30px auto;
-}
-.main-section .left .menu-section {
+.main-section .first-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-}
-.main-section .left .menu-section .section {
-  position: relative;
-  padding: 10px;
-  cursor: pointer;
-}
-.main-section .left .menu-section .section:after {
-  position: absolute;
-  content: "";
-  bottom: 5px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: #DA0037;
-  transition: width 0.5s;
-}
-.main-section .left .menu-section .section.active {
-  color: #DA0037;
-  font-weight: 600;
-}
-.main-section .left .menu-section .section.active.section:after {
   width: 100%;
+  height: 100vh;
+  background-color: #101010;
+  background-size: cover;
+  background-position: center;
 }
-.main-section .right {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+.main-section .first-section h1 {
+  position: absolute;
+  width: 30%;
+  color: #fff;
+  text-align: center;
+  font-size: 200px;
+  font-weight: 200;
+  font-family: "Networld";
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(218, 0, 55, 0.545), 0 0 40px rgba(218, 0, 55, 0.545), 0 0 50px rgba(218, 0, 55, 0.545), 0 0 60px rgba(218, 0, 55, 0.545), 0 0 70px rgba(218, 0, 55, 0.545);
+}
+.main-section .first-section h1 span {
+  color: rgb(218, 0, 55);
+}
+.main-section .first-section .cubic {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  -webkit-animation: animation 2s linear infinite;
+          animation: animation 2s linear infinite;
+}
+.main-section .first-section .cubic .cubic_side {
+  position: absolute;
   display: flex;
-  position: fixed;
-  flex-direction: column;
-  padding: 30px;
-  margin-left: 25%;
-  width: calc(75% - 100px);
-  height: 80vh;
-  border-top: 1px solid #DA0037;
-  border-right: 1px solid #DA0037;
-  border-bottom: 1px solid #DA0037;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 3px solid rgba(218, 0, 55, 0.545);
+  box-shadow: 0px 0px 20px 1px rgba(218, 0, 55, 0.545);
 }
-.main-section .right .pane {
-  display: none;
+.main-section .first-section .cubic .cubic_side:nth-child(1), .main-section .first-section .cubic .cubic_side:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  background-image: url("./svg/scss-svgrepo-com.svg");
+  background-size: cover;
+  transform: translate3d(0, 0, -75px);
 }
-.main-section .right .pane .title {
-  font-weight: 400;
-  font-family: "Reem Kufi Ink";
-  font-size: 26px;
+.main-section .first-section .cubic .cubic_side:nth-child(2) {
+  background-image: url("./svg/react-2.svg");
+  transform: translate3d(0, 0, 75px);
 }
-.main-section .right .pane .sub-title {
-  font-weight: 600;
+.main-section .first-section .cubic .cubic_side:nth-child(3), .main-section .first-section .cubic .cubic_side:nth-child(4) {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  background-image: url("./svg/css-3-logo-svgrepo-com.svg");
+  transform: translate(-50%, -50%) rotateY(90deg) translate3d(0, 0, 75px);
+}
+.main-section .first-section .cubic .cubic_side:nth-child(4) {
+  background-image: url("./svg/html-5-logo-svgrepo-com.svg");
+  transform: translate(-50%, -50%) rotateY(-90deg) translate3d(0, 0, 75px);
+}
+.main-section .first-section .cubic .cubic_side:nth-child(5), .main-section .first-section .cubic .cubic_side:nth-child(6) {
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  background-image: url("./svg/nodejs-icon-logo-svgrepo-com.svg");
+  transform: translate(-50%, -50%) rotateX(90deg) translate3d(0, 0, 75px);
+}
+.main-section .first-section .cubic .cubic_side:nth-child(6) {
+  background-image: url("./svg/js_logo.svg");
+  transform: translate(-50%, -50%) rotateX(-90deg) translate3d(0, 0, 75px);
+}
+.main-section .first-section #typing-text {
+  text-align: center;
+  margin-top: 150px;
+  border: solid 1px #da0037;
+  padding: 0.5em;
   font-size: 32px;
-  margin-top: 50px;
-  text-transform: uppercase;
+  font-weight: 400;
+  font-family: "Autobusbold";
 }
-.main-section .right .pane .content {
-  margin-top: 50px;
-  text-align: justify;
+.main-section .first-section #typing-text .text,
+.main-section .first-section #typing-text .cursor {
+  color: #fff;
 }
-.main-section .right .pane .content > span {
-  color: #DA0037;
-  font-weight: 600;
+.main-section .first-section #typing-text .hi {
+  color: rgb(218, 0, 55);
 }
-.main-section .right .pane.active {
-  display: block;
+
+@-webkit-keyframes animation {
+  from {
+    transform: translateY(0) rotateX(0) rotateY(0);
+  }
+  to {
+    transform: translateY(0) rotateX(360deg) rotateY(360deg);
+  }
 }
-.main-section .right .pane .showcase {
-  margin-top: 70px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
+
+@keyframes animation {
+  from {
+    transform: translateY(0) rotateX(0) rotateY(0);
+  }
+  to {
+    transform: translateY(0) rotateX(360deg) rotateY(360deg);
+  }
 }
-.main-section .right .pane .showcase .skill-item {
-  margin: 10px 15px;
-  display: flex;
-  align-items: center;
-  border: 1px solid #DA0037;
-  padding: 5px 10px;
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }
-.main-section .right .pane .showcase .skill-item .skill-icon {
-  width: 40px;
-  margin-right: 10px;
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+  }
 }/*# sourceMappingURL=index.css.map */

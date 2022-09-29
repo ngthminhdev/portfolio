@@ -6,223 +6,210 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 main {
   background-color: $background-color;
-  font-family: "Montserrat";
+  // font-family: "PriceDown";
   width: 100vw;
-  height: 100vh;
-  padding: 30px 50px;
+  height: 200vh;
+  // padding: 30px 50px;
 }
 
 #nav {
-  position: fixed;
+  position: absolute;
+  top:0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  text-align: center;
+  justify-content: space-around;
   align-items: center;
-  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
   width: 100vw;
+  height: 10vh;
 
-  #title-0 {
-    // display: inline-block;
-    text-decoration: none;
-    letter-spacing: -0.1em;
+  ul {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
-    span {
-      float: left;
-      color: $title-color;
-      font-weight: 600;
-      font-size: 37px;
-    }
-  }
-
-  #typing-text {
-    margin-right: 116px;
-    border: solid 1px $border-color;
-    padding: 0.5em;
-    font-weight: 400;
-    font-family: "Montserrat";
-    .text {
+    li {
+      font-family: "Autobusbold";
+      font-size: 24px;
       color: $text-color;
-    }
-    .hi {
-      color: $title-color;
+      transition: all 0.5s ease;
+
+      &:hover {
+        cursor: pointer;
+        color: $title-color;
+      }
     }
   }
 }
 
 .main-section {
-  display: flex;
-  margin-top: 70px;
-  width: 100%;
-  height: 100%;
+  -webkit-user-select: none;
+  user-select: none;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // width: 100%;
+  // height: 100vh;
 
-  .left {
-    position: fixed;
+  .first-section {
+    $width: 150px;
+    $height: 150px;
+    $depth: 150px;
+
     display: flex;
-    align-items: center;
     flex-direction: column;
-    width: 25%;
-    height: 80vh;
-    border: 1px solid $border-color;
-    -webkit-user-select: none;
-    user-select: none;
-    transform-origin: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
-    .avatar-section {
-      position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #101010;
+    background-size: cover;
+    background-position: center;
 
-      .avatar {
-        position: relative;
-        width: 200px;
-        border-radius: 50%;
-        margin: 30px auto;
-        object-fit: cover;
-      }
-
-      .circle-1 {
-        position: absolute;
-        box-sizing: border-box;
-        width: 210px;
-        height: 210px;
-        top: 25px; /* position the top  edge of the element at the middle of the parent */
-        left: -5px; /* position the left edge of the element at the middle of the parent */
-        border-width: 2px;
-        border-style: solid;
-        border-color: $border-color $border-color $border-color transparent;
-        border-radius: 50%;
-        transition: all 1.5s ease-in-out;
-      }
-
-      .circle-2 {
-        @extend .circle-1;
-        width: 220px;
-        height: 220px;
-        top: 20px; /* position the top  edge of the element at the middle of the parent */
-        left: -10px; /* position the left edge of the element at the middle of the parent */
-        border-color: $border-color transparent $border-color $border-color;
-      }
-
-      &:hover {
-        cursor: pointer;
-        .circle-1 {
-          transform: rotate(360deg);
-        }
-        .circle-2 {
-          transform: rotate(-360deg);
-        }
-      }
-    }
-
-    .name {
-      font-weight: 600;
-      font-size: 22px;
-      margin: 0 auto 15px auto;
-    }
-
-    .description {
-      font-size: 13px;
-      text-transform: uppercase;
-      margin: 0 auto 30px auto;
-    }
-
-    .menu-section {
+    h1 {
+      position: absolute;
+      width: 30%;
+      color: $text-color;
       text-align: center;
+      font-size: 200px;
+      font-weight: 200;
+      font-family: "Networld";
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.5;
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px $outlight-color,
+        0 0 40px $outlight-color, 0 0 50px $outlight-color, 0 0 60px $outlight-color, 0 0 70px $outlight-color;
 
-      .section {
-        position: relative;
-        padding: 10px;
-        cursor: pointer;
+      span {
+        color: $title-color;
+      }
+    }
 
-        &:after {
-          position: absolute;
-          content: "";
-          bottom: 5px;
-          left: 0;
-          width: 0%;
-          height: 2px;
-          background-color: $title-color;
-          transition: width 0.5s;
+    .cubic {
+      $border-color: rgba(218, 0, 55, 0.545);
+      position: relative;
+      width: $width;
+      height: $height;
+      transform-origin: center;
+      transform-style: preserve-3d;
+      animation: animation 2s linear infinite;
+
+      .cubic_side {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-size: cover;
+        background-position: center;
+        // background-color: rgba(247, 102, 252, 0.314);
+        background-color: rgba(0, 0, 0, 0.8);
+        border: 3px solid $border-color;
+        box-shadow: 0px 0px 20px 1px $border-color;
+        // inset 0px 0px 30px 10px $border-color;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          width: $width;
+          height: $height;
+          background-image: url("./svg/scss-svgrepo-com.svg");
+          background-size: cover;
+          transform: translate3d(0, 0, calc($depth * -0.5));
         }
 
-        &.active {
-          color: $title-color;
-          font-weight: 600;
-
-          &.section:after {
-            width: 100%;
-          }
+        &:nth-child(2) {
+          background-image: url("./svg/react-2.svg");
+          transform: translate3d(0, 0, calc($depth * 0.5));
         }
+
+        &:nth-child(3),
+        &:nth-child(4) {
+          width: $depth;
+          height: $height;
+          top: 50%;
+          left: 50%;
+          background-image: url("./svg/css-3-logo-svgrepo-com.svg");
+          transform: translate(-50%, -50%) rotateY(90deg)
+            translate3d(0, 0, calc($width * 0.5));
+        }
+
+        &:nth-child(4) {
+          background-image: url("./svg/html-5-logo-svgrepo-com.svg");
+          transform: translate(-50%, -50%) rotateY(-90deg)
+            translate3d(0, 0, calc($width * 0.5));
+        }
+
+        &:nth-child(5),
+        &:nth-child(6) {
+          width: $width;
+          height: $depth;
+          top: 50%;
+          left: 50%;
+          background-image: url("./svg/nodejs-icon-logo-svgrepo-com.svg");
+          transform: translate(-50%, -50%) rotateX(90deg)
+            translate3d(0, 0, calc($height * 0.5));
+        }
+
+        &:nth-child(6) {
+          background-image: url("./svg/js_logo.svg");
+          transform: translate(-50%, -50%) rotateX(-90deg)
+            translate3d(0, 0, calc($height * 0.5));
+        }
+      }
+    }
+
+    #typing-text {
+      text-align: center;
+      margin-top: 150px;
+      border: solid 1px $border-color;
+      padding: 0.5em;
+      font-size: 32px;
+      font-weight: 400;
+      font-family: "Autobusbold";
+
+      .text,
+      .cursor {
+        color: $text-color;
+      }
+      .hi {
+        color: $title-color;
       }
     }
   }
+}
 
-  .right {
-    -webkit-user-select: none;
-    user-select: none;
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    padding: 30px;
-    margin-left: 25%;
-    width: calc(75% - 100px);
-    height: 80vh;
-    border-top: 1px solid $border-color;
-    border-right: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+@keyframes animation {
+  from {
+    transform: translateY(0) rotateX(0) rotateY(0);
+  }
 
-    .pane {
-      display: none;
+  to {
+    transform: translateY(0) rotateX(360deg) rotateY(360deg);
+  }
+}
 
-      .title {
-        font-weight: 400;
-        font-family: "Reem Kufi Ink";
-        font-size: 26px;
-      }
-
-      .sub-title {
-        font-weight: 600;
-        font-size: 32px;
-        margin-top: 50px;
-        text-transform: uppercase;
-      }
-
-      .content {
-        margin-top: 50px;
-        text-align: justify;
-
-        > span {
-          color: $title-color;
-          font-weight: 600;
-        }
-      }
-
-      &.active {
-        display: block;
-      }
-
-      .showcase {
-        margin-top: 70px;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-
-        .skill-item {
-          margin: 10px 15px;
-          display: flex;
-          align-items: center;
-          border: 1px solid $border-color;
-          padding: 5px 10px;
-
-          .skill-icon {
-            width: 40px;
-            margin-right: 10px;
-          }
-        }
-
-        .react {
-        }
-      }
-    }
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073,
+      0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6,
+      0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
   }
 }
