@@ -84,7 +84,8 @@ sections.forEach((item, index) => {
       y: '50px',
     }, 0)
     .from('.skill-icon', {
-      rotate: '760deg',
+      rotate: '180deg',
+      scale: 0,
     }, 0)
 
   };
