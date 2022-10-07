@@ -40,12 +40,23 @@
 @font-face {
     font-family: "RegaveDemibold";
     src: url("../assets/fonts/RegaveDemibold-nRZrJ.ttf"); /*URL to font*/
-  }
+}
+
+@font-face {
+  font-family: "Mont-Light";
+  src: url("../assets/fonts/Mont-ExtraLightDEMO.otf"); /*URL to font*/
+}
+
+@font-face {
+  font-family: "Mont-Heavy";
+  src: url("../assets/fonts/Mont-HeavyDEMO.otf"); /*URL to font*/
+}
 
 $title-color: rgb(218, 0, 55);
 $text-color: #fff;
 
-$border-color: #da0037;
+$border-color: #ca0b3a;
+$border-color2: #da0037;
 $outlight-color: rgba(218, 0, 55, 0.545);
 
-$background-color: #fff;
+$background-color: #101010;
