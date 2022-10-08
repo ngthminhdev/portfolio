@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 const $$ = document.querySelectorAll.bind(document);
 const $ = document.querySelector.bind(document);
 
@@ -24,69 +26,249 @@ const typingText = (words = []) => {
 typingText(["Thanh Minh.", "A Student.", "A Web Developer."]);
 
 const sections = $$(".section");
-const panes = $$(".pane");
 
-// const tl = gsap.timeline({
-//   defaults: { duration: 0.5, opacity: 0 },
-// });
+const scrollOnWheel = function (e) {
+  window.removeEventListener("wheel", scrollOnWheel);
+  let pageHeight = window.innerHeight;
+  if (e.deltaY < 0) {
+    window.scrollBy(0, -pageHeight);
+    setTimeout(() => {
+      window.addEventListener("wheel", scrollOnWheel);
+    }, 500);
+  } else if (e.deltaY > 0) {
+    window.scrollBy(0, pageHeight);
+    setTimeout(() => {
+      window.addEventListener("wheel", scrollOnWheel);
+    }, 500);
+  }
+};
 
-// tl.from(".left", {
-//   height: "0",
-// })
-//   .from(".avatar", {
-//     height: "0",
-//   })
-//   .from(".circle-1", {
-//     height: "0",
-//   }, 0)
-//   .from(".circle-2", {
-//     height: "0",
-//   }, 0)
-//   .from(".name", {
-//     height: "0",
-//   })
-//   .from(".description", {
-//     height: "0",
-//   }, '<')
-//   .from(".section", {
-//     height: "0",
-//   });
+window.addEventListener("wheel", scrollOnWheel);
 
-// tl.from('.right', {
-//   height: "0",
-// }, )
-// .from('.title', {
-//   height: "0",
-// }, '<')
+const isInViewPort = function (e) {
+  const bounding = e.getBoundingClientRect();
+  if (
+    bounding.top >= 0 &&
+    bounding.left >= 0 &&
+    bounding.right <= window.innerWidth &&
+    bounding.bottom <= window.innerHeight
+  ) {
+    return true;
+  }
+  return false;
+};
 
-sections.forEach((item, index) => {
+const tl = gsap.timeline();
+
+tl.from(".bg_text", {
+  opacity: 0,
+  y: "-100px",
+  duration: 1,
+})
+  .from("#typing-text", {
+    opacity: 0,
+    y: "-100px",
+  })
+  .from(".cubic_side", {
+    opacity: 0,
+    scale: 0,
+    duration: 1,
+  })
+  .from(".down-btn", {
+    opacity: 0,
+    y: "-50px",
+    duration: 0.5,
+    // yoyo:true,
+    // repeat: -1,
+    // ease: 'linear'
+  });
+
+const tl2 = gsap.timeline();
+
+ScrollTrigger.defaults({
+  toggleActions: "restart none reverse none",
+  start: "top center",
+  end: "bottom top",
+  endTrigger: "html",
+});
+
+gsap.from(".bg_about", {
+  scrollTrigger: {
+    trigger: ".bg_about",
+    // markers: true,
+    id: "about",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
+});
+
+gsap.from(".second_circle", {
+  scrollTrigger: {
+    trigger: ".bg_about",
+    toggleClass: {
+      targets: [
+        ".line-1",
+        ".line-2",
+        ".second_circle",
+        ".second_part",
+        ".avatar",
+        ".frame-1",
+        ".frame-2",
+        ".down-btn",
+      ],
+      className: "active",
+    },
+  },
+  scale: 0,
+  opacity: 0,
+  rotate: "-360deg",
+  duration: 1,
+  delay: 0.5,
+});
+
+const down_btn = $(".down-btn");
+const about = $("#second-section");
+
+down_btn.onclick = function () {
+  let pageHeight = window.innerHeight;
+  window.scrollBy(0, pageHeight);
+};
+
+gsap.from(".bg_skills", {
+  scrollTrigger: {
+    trigger: ".bg_skills",
+    // markers: true,
+    id: "skill",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
+});
+
+gsap.from(".third_main_textbox", {
+  scrollTrigger: {
+    trigger: ".bg_skills",
+  },
+  opacity: 0,
+  duration: 1,
+  delay: 1.5,
+});
+
+gsap.from(".sub_texbox_detail", {
+  scrollTrigger: {
+    trigger: ".bg_skills",
+  },
+  scale: 0.5,
+  opacity: 0,
+  duration: 1,
+  delay: 1.5,
+});
+
+gsap.from(".third_circle", {
+  scrollTrigger: {
+    trigger: ".bg_skills",
+    toggleClass: {
+      targets: [
+        ".third_circle",
+        ".third_part",
+        ".third_left_circle",
+        ".third_right_circle",
+        ".third_main_textbox",
+        ".third_sub_textbox",
+        ".third_icon",
+        ".third_path",
+      ],
+      className: "active",
+    },
+  },
+  scale: 0,
+  opacity: 0,
+  rotate: "180deg",
+  duration: 1,
+  delay: 0.5,
+});
+
+const thirdIcons = $$(".third_icon");
+
+const panes = $$(".third_main_textbox");
+const thirdParts = $$(".third_part");
+const thirdSubs = $$(".third_sub_textbox");
+
+thirdIcons.forEach((item, index) => {
   const pane = panes[index];
-  item.onclick = function() {
-    $(".section.active").classList.remove("active");
-    $(".pane.active").classList.remove("active");
+  const thirdPart = thirdParts[index];
+  const thirdSub = thirdSubs[index];
+  item.onclick = function () {
+    $(".third_icon.choice").classList.remove("choice");
+    $(".third_main_textbox.choice").classList.remove("choice");
+    $(".third_part.choice").classList.remove("choice");
+    $(".third_sub_textbox.choice").classList.remove("choice");
 
-    pane.classList.add("active");
-    item.classList.add("active");
-
-    const tl = new TimelineLite();
-    tl.from(pane, 0.5, {
-      x: '-30px',
-      opacity: 0
-    })
-    // .from('.skill-item', {
-    //   x:'30px',
-    //   // y:'50px',
-    //   opacity: 0,
-    //   width: '0',
-    // }, 0)
-    .from('.showcase', {
-      x: '30px',
-      y: '50px',
-    }, 0)
-    .from('.skill-icon', {
-      rotate: '180deg',
-      scale: 0,
-    }, 0)
-
+    thirdPart.classList.add("choice");
+    thirdSub.classList.add("choice");
+    pane.classList.add("choice");
+    item.classList.add("choice");
   };
+});
+
+
+gsap.from(".bg_projects", {
+  scrollTrigger: {
+    // markers: true,
+    id: "bg_projects",
+    trigger: ".bg_projects",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
+});
+
+gsap.from(".fourth", {
+  scrollTrigger: {
+    trigger: ".bg_projects",
+  },
+  opacity: 0,
+  duration: 0.5,
+  delay: 0.5,
+});
+
+gsap.from(".fourth-textbox", {
+  scrollTrigger: {
+    trigger: ".bg_projects",
+  },
+  y: '100px',
+  opacity: 0,
+  duration: 0.5,
+  delay: 1,
+});
+
+const fourthPanes = $$(".fourth_textbox");
+const fourthSubs = $$(".fourth_sub_textbox");
+const fourthChoices = $$(".fourth_choice_textbox");
+
+fourthChoices.forEach((item, index) => {
+  const fourthPane = fourthPanes[index];
+  const fourthSub = fourthSubs[index];
+  const fourthChoice = fourthChoices[index];
+  item.onclick = function () {
+    $(".fourth_textbox.choice").classList.remove("choice");
+    $(".fourth_choice_textbox.choice").classList.remove("choice");
+    $(".fourth_sub_textbox.choice").classList.remove("choice");
+
+    fourthPane.classList.add("choice");
+    fourthSub.classList.add("choice");
+    fourthChoice.classList.add("choice");
+  };
+});
+
+gsap.from(".bg_contact", {
+  scrollTrigger: {
+    markers: true,
+    id: "bg_contact",
+    trigger: ".bg_contact",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
 });
