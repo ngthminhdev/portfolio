@@ -138,7 +138,6 @@ down_btn.onclick = function () {
 gsap.from(".bg_skills", {
   scrollTrigger: {
     trigger: ".bg_skills",
-    // markers: true,
     id: "skill",
   },
   y: "-100px",
@@ -264,7 +263,7 @@ fourthChoices.forEach((item, index) => {
 
 gsap.from(".bg_contact", {
   scrollTrigger: {
-    markers: true,
+    // markers: true,
     id: "bg_contact",
     trigger: ".bg_contact",
   },
