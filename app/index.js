@@ -138,7 +138,7 @@ down_btn.onclick = function () {
 gsap.from(".bg_skills", {
   scrollTrigger: {
     trigger: ".bg_skills",
-    markers: true,
+    // markers: true,
     id: "skill",
   },
   y: "-100px",
@@ -210,4 +210,65 @@ thirdIcons.forEach((item, index) => {
     pane.classList.add("choice");
     item.classList.add("choice");
   };
+});
+
+
+gsap.from(".bg_projects", {
+  scrollTrigger: {
+    // markers: true,
+    id: "bg_projects",
+    trigger: ".bg_projects",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
+});
+
+gsap.from(".fourth", {
+  scrollTrigger: {
+    trigger: ".bg_projects",
+  },
+  opacity: 0,
+  duration: 0.5,
+  delay: 0.5,
+});
+
+gsap.from(".fourth-textbox", {
+  scrollTrigger: {
+    trigger: ".bg_projects",
+  },
+  y: '100px',
+  opacity: 0,
+  duration: 0.5,
+  delay: 1,
+});
+
+const fourthPanes = $$(".fourth_textbox");
+const fourthSubs = $$(".fourth_sub_textbox");
+const fourthChoices = $$(".fourth_choice_textbox");
+
+fourthChoices.forEach((item, index) => {
+  const fourthPane = fourthPanes[index];
+  const fourthSub = fourthSubs[index];
+  const fourthChoice = fourthChoices[index];
+  item.onclick = function () {
+    $(".fourth_textbox.choice").classList.remove("choice");
+    $(".fourth_choice_textbox.choice").classList.remove("choice");
+    $(".fourth_sub_textbox.choice").classList.remove("choice");
+
+    fourthPane.classList.add("choice");
+    fourthSub.classList.add("choice");
+    fourthChoice.classList.add("choice");
+  };
+});
+
+gsap.from(".bg_contact", {
+  scrollTrigger: {
+    markers: true,
+    id: "bg_contact",
+    trigger: ".bg_contact",
+  },
+  y: "-100px",
+  opacity: 0,
+  duration: 0.5,
 });

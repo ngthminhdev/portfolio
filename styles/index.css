@@ -48,6 +48,7 @@
 }
 
 html {
+  -webkit-scroll-behavior: smooth;
   scroll-behavior: smooth;
 }
 html body {
@@ -61,7 +62,7 @@ html main {
   background-color: #101010;
 }
 html #nav {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   flex-direction: row;
@@ -74,7 +75,7 @@ html #nav {
        user-select: none;
   width: 100vw;
   height: 10vh;
-  z-index: 5;
+  z-index: 9999;
 }
 html #nav ul {
   width: 100%;
@@ -91,7 +92,11 @@ html #nav ul li {
   color: #fff;
   transition: all 0.5s ease;
 }
-html #nav ul li:hover {
+html #nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+html #nav ul li a:hover {
   cursor: pointer;
   color: rgb(218, 0, 55);
 }
@@ -218,8 +223,8 @@ html .main-section .first-section .down-btn img:first-child {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -80%);
-  -webkit-animation: arrow-ani 0.8s linear 1.5s infinite alternate;
-          animation: arrow-ani 0.8s linear 1.5s infinite alternate;
+  -webkit-animation: arrow-ani 0.8s linear 1s infinite alternate;
+          animation: arrow-ani 0.8s linear 1s infinite alternate;
 }
 html .main-section .first-section .down-btn img:first-child:hover {
   cursor: pointer;
@@ -635,6 +640,163 @@ html .main-section .third-section .right .third_circle .third_icon {
 }
 html .main-section .third-section .right .third_circle .third_icon.active {
   opacity: 1;
+}
+html .main-section .fourth-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  color: #fff;
+}
+html .main-section .fourth-section h2 {
+  position: absolute;
+  width: 30%;
+  color: #fff;
+  text-align: center;
+  font-size: 200px;
+  font-weight: 200;
+  font-family: "Networld";
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(218, 0, 55, 0.545), 0 0 40px rgba(218, 0, 55, 0.545), 0 0 50px rgba(218, 0, 55, 0.545), 0 0 60px rgba(218, 0, 55, 0.545), 0 0 70px rgba(218, 0, 55, 0.545);
+}
+html .main-section .fourth-section h2 span {
+  color: rgb(218, 0, 55);
+}
+html .main-section .fourth-section .left {
+  width: 65%;
+  height: 100%;
+}
+html .main-section .fourth-section .left .top,
+html .main-section .fourth-section .left .bot {
+  position: relative;
+  width: 100%;
+}
+html .main-section .fourth-section .left .top img,
+html .main-section .fourth-section .left .bot img {
+  width: 100%;
+}
+html .main-section .fourth-section .left .top .fourth_sub_textbox,
+html .main-section .fourth-section .left .top .fourth_textbox,
+html .main-section .fourth-section .left .bot .fourth_sub_textbox,
+html .main-section .fourth-section .left .bot .fourth_textbox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(15%, 33%);
+  width: 80%;
+  height: 70%;
+  float: left;
+  font-size: 1.9vw;
+  font-family: "Autobusbold";
+  opacity: 0;
+}
+html .main-section .fourth-section .left .top .fourth_sub_textbox.choice,
+html .main-section .fourth-section .left .top .fourth_textbox.choice,
+html .main-section .fourth-section .left .bot .fourth_sub_textbox.choice,
+html .main-section .fourth-section .left .bot .fourth_textbox.choice {
+  display: block;
+  opacity: 1;
+}
+html .main-section .fourth-section .left .top .fourth_sub_textbox ul,
+html .main-section .fourth-section .left .top .fourth_textbox ul,
+html .main-section .fourth-section .left .bot .fourth_sub_textbox ul,
+html .main-section .fourth-section .left .bot .fourth_textbox ul {
+  width: 100%;
+  margin: -0.3em 0;
+}
+html .main-section .fourth-section .left .top .fourth_sub_textbox ul li,
+html .main-section .fourth-section .left .top .fourth_textbox ul li,
+html .main-section .fourth-section .left .bot .fourth_sub_textbox ul li,
+html .main-section .fourth-section .left .bot .fourth_textbox ul li {
+  width: 100%;
+  margin: 0.3em 0;
+}
+html .main-section .fourth-section .left .top .fourth_sub_textbox ul li a,
+html .main-section .fourth-section .left .top .fourth_textbox ul li a,
+html .main-section .fourth-section .left .bot .fourth_sub_textbox ul li a,
+html .main-section .fourth-section .left .bot .fourth_textbox ul li a {
+  color: #fff34d;
+}
+html .main-section .fourth-section .right {
+  width: 30%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+html .main-section .fourth-section .right .top,
+html .main-section .fourth-section .right .bot {
+  position: relative;
+  width: 100%;
+}
+html .main-section .fourth-section .right .top img,
+html .main-section .fourth-section .right .bot img {
+  width: 100%;
+}
+html .main-section .fourth-section .right .top .fourth_choice_textbox,
+html .main-section .fourth-section .right .bot .fourth_choice_textbox {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(12%, 40%);
+  width: 80%;
+  height: 70%;
+  text-align: center;
+  font-size: 1.9vw;
+  font-family: "Autobusbold";
+  opacity: 1;
+}
+html .main-section .fourth-section .right .top .fourth_choice_textbox h4,
+html .main-section .fourth-section .right .bot .fourth_choice_textbox h4 {
+  font-family: "Moonhouse";
+}
+html .main-section .fifth-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+}
+html .main-section .fifth-section h2 {
+  position: absolute;
+  width: 30%;
+  color: #fff;
+  text-align: center;
+  font-size: 200px;
+  font-weight: 200;
+  font-family: "Networld";
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(218, 0, 55, 0.545), 0 0 40px rgba(218, 0, 55, 0.545), 0 0 50px rgba(218, 0, 55, 0.545), 0 0 60px rgba(218, 0, 55, 0.545), 0 0 70px rgba(218, 0, 55, 0.545);
+}
+html .main-section .fifth-section h2 span {
+  color: rgb(218, 0, 55);
+}
+@-webkit-keyframes textbox-ani {
+  from {
+    transform: scale(0) opacity(0);
+  }
+  to {
+    transform: scale(1) opacity(1);
+  }
+}
+@keyframes textbox-ani {
+  from {
+    transform: scale(0) opacity(0);
+  }
+  to {
+    transform: scale(1) opacity(1);
+  }
 }
 @-webkit-keyframes animation {
   from {
