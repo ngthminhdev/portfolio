@@ -25,25 +25,27 @@ const typingText = (words = []) => {
 
 typingText(["Thanh Minh.", "A Student.", "A Web Developer."]);
 
-const sections = $$(".section");
 
-const scrollOnWheel = function (e) {
-  window.removeEventListener("wheel", scrollOnWheel);
-  let pageHeight = window.innerHeight;
-  if (e.deltaY < 0) {
-    window.scrollBy(0, -pageHeight);
-    setTimeout(() => {
-      window.addEventListener("wheel", scrollOnWheel);
-    }, 500);
-  } else if (e.deltaY > 0) {
-    window.scrollBy(0, pageHeight);
-    setTimeout(() => {
-      window.addEventListener("wheel", scrollOnWheel);
-    }, 500);
-  }
-};
-
-window.addEventListener("wheel", scrollOnWheel);
+const windowWidth = window.innerWidth;
+if (windowWidth >= 1024) {
+  const sections = gsap.utils.toArray(".section");
+  
+  sections.forEach((scene, i) => {
+    ScrollTrigger.create({
+      trigger: scene,
+      scrub: true,
+      // pin: true,
+      id: `scene-${i}`,
+      start: 'top top',
+      end: "+=100%",
+         snap: {
+           snapTo: 1,
+           duration: { min: 0.2, max: 1 },
+           delay: 0.1
+         },
+    });
+  });
+}
 
 const isInViewPort = function (e) {
   const bounding = e.getBoundingClientRect();
@@ -56,6 +58,15 @@ const isInViewPort = function (e) {
     return true;
   }
   return false;
+};
+
+window.onscroll = function(e) {
+  const arrow = $('.down-btn');
+  if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    arrow.style.display = 'none';
+  } else {
+    arrow.style.display = 'block';
+  }
 };
 
 const tl = gsap.timeline();
@@ -259,15 +270,4 @@ fourthChoices.forEach((item, index) => {
     fourthSub.classList.add("choice");
     fourthChoice.classList.add("choice");
   };
-});
-
-gsap.from(".bg_contact", {
-  scrollTrigger: {
-    // markers: true,
-    id: "bg_contact",
-    trigger: ".bg_contact",
-  },
-  y: "-100px",
-  opacity: 0,
-  duration: 0.5,
 });

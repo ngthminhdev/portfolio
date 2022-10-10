@@ -60,3 +60,12 @@ $border-color2: #da0037;
 $outlight-color: rgba(218, 0, 55, 0.545);
 
 $background-color: #101010;
+
+
+$res_320 : "only screen and (min-width: 320px) and (max-width: 374px)";
+$res_375 : "only screen and (min-width: 375px) and (max-width: 424px)";
+$res_425 : "only screen and (min-width: 425px) and (max-width: 767px)";
+$res_800 : "only screen and (min-width: 800px) and (max-width: 1024px)";
+$res_1024 : "only screen and (min-width: 1024px) and (max-width: 1281px)";
+$res_1281 : "only screen and (min-width: 1281px) and (max-width: 1440px)";
+$res_1440 : "only screen and (min-width: 1440px)";
