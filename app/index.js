@@ -28,6 +28,7 @@ typingText(["Thanh Minh.", "A Student.", "A Web Developer."]);
 
 const windowWidth = window.innerWidth;
 if (windowWidth >= 1024) {
+
   const sections = gsap.utils.toArray(".section");
   
   sections.forEach((scene, i) => {
@@ -40,7 +41,7 @@ if (windowWidth >= 1024) {
       end: "+=100%",
          snap: {
            snapTo: 1,
-           duration: { min: 0.2, max: 1 },
+           duration: { min: 0.2, max: 0.5 },
            delay: 0.1
          },
     });

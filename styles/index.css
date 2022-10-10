@@ -1269,7 +1269,7 @@ html .main-section .fourth-section .right .bot .fourth_choice_textbox h4 {
   }
   html .second-section {
     height: 100% !important;
-    justify-content: space-center;
+    justify-content: space-around;
   }
   html .second-section .line-1,
 html .second-section .line-2 {
