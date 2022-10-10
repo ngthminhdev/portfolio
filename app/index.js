@@ -48,19 +48,6 @@ if (windowWidth >= 1024) {
   });
 }
 
-const isInViewPort = function (e) {
-  const bounding = e.getBoundingClientRect();
-  if (
-    bounding.top >= 0 &&
-    bounding.left >= 0 &&
-    bounding.right <= window.innerWidth &&
-    bounding.bottom <= window.innerHeight
-  ) {
-    return true;
-  }
-  return false;
-};
-
 window.onscroll = function(e) {
   const arrow = $('.down-btn');
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
