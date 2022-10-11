@@ -1267,9 +1267,14 @@ html .main-section .fourth-section .right .bot .fourth_choice_textbox h4 {
   html {
     font-size: 10px;
   }
+  html .section {
+    max-height: none !important;
+  }
   html .second-section {
-    height: 100% !important;
     justify-content: space-around;
+  }
+  html .second-section .left, html .second-section .right {
+    height: 0 !important;
   }
   html .second-section .line-1,
 html .second-section .line-2 {
@@ -1342,6 +1347,27 @@ html .second-section .frame-2 img {
     bottom: 25% !important;
     right: -25%;
     text-align: right;
+  }
+  html .fourth-section {
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  html .fourth-section .left img {
+    width: 125% !important;
+  }
+  html .fourth-section .right {
+    width: 60% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-around !important;
+  }
+  html .fourth-section .top, html .fourth-section .bot {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  html .fourth-section .top li, html .fourth-section .bot li {
+    font-size: 1.8rem;
   }
   html .fourth-section .fourth_sub_textbox,
 html .fourth-section .fourth_textbox {

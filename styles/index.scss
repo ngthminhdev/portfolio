@@ -6,10 +6,16 @@
 
   html {
     font-size: 10px;
-    
+    .section {
+      max-height: none !important;
+    }   
+
     .second-section {
-      height: 100% !important;
       justify-content: space-around;
+      .left, .right {
+        height: 0 !important;
+      }
+
       .line-1,
       .line-2 {
         display: none;
@@ -99,6 +105,30 @@
     }
 
     .fourth-section {
+      flex-direction: column !important;
+      justify-content: center !important;
+      .left {
+        img {
+          width: 125% !important;
+        }
+      }
+      
+      .right {
+        width: 60% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-around !important;
+      }
+
+      .top, .bot {
+        li {
+          font-size: 1.8rem;
+        }
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
       .fourth_sub_textbox,
       .fourth_textbox {
         font-size: 1.6rem !important;

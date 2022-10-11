@@ -48,12 +48,21 @@ if (windowWidth >= 1024) {
   });
 }
 
+console.log(windowWidth);
+
 window.onscroll = function(e) {
   const arrow = $('.down-btn');
+  const text = $('#typing-text');
   if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
     arrow.style.display = 'none';
   } else {
     arrow.style.display = 'block';
+  }
+
+  if ((window.innerHeight + window.scrollY) >= window.innerHeight * 2) {
+    text.style.display = 'none';
+  } else {
+    text.style.display = 'block';
   }
 };
 
